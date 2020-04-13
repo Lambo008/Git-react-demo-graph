@@ -16,7 +16,7 @@ class Graph extends React.Component {
     };
 
     this.getData = this.getData.bind(this);
-    this.showdata = this.showdata.bind(this);
+    this.show_data = this.show_data.bind(this);
   }
 
   componentWillMount() {
