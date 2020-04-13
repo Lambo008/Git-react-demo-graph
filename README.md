@@ -28,4 +28,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ##After running script it will show graph like this
 
-![Uploading Screenshot_1.jpg…]()
+![Screenshot_1](https://user-images.githubusercontent.com/51714376/79137491-17cab500-7db3-11ea-9d12-f794c71f8618.jpg)
