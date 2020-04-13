@@ -26,6 +26,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-##After running script it will show graph like this
+### After running script it will show graph like this
 
 ![Screenshot_1](https://user-images.githubusercontent.com/51714376/79137491-17cab500-7db3-11ea-9d12-f794c71f8618.jpg)
