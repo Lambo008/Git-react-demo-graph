@@ -52,7 +52,7 @@ class Graph extends React.Component {
       data.push(element);
       //console.log(element);
     });
-    console.log(data);
+    //console.log(data);
     dataSeries.dataPoints = data;
 
     //set graph data array and render graph
