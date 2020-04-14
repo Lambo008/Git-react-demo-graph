@@ -4,6 +4,8 @@ import { Navbar } from "react-bootstrap";
 
 import CanvasJSReact from "./assets/canvas-chart-js/canvasjs.react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Loader from 'react-loader-spinner'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 class Graph extends React.Component {
@@ -13,6 +15,7 @@ class Graph extends React.Component {
     this.state = {
       data: [],
       dataArray: [],
+      loading:true
     };
 
     this.getData = this.getData.bind(this);
@@ -26,6 +29,7 @@ class Graph extends React.Component {
   getData(result) {
     // setting data to state.
     this.setState({ data: result.data });
+    this.show_data();
   }
 
   async getCsvData() {
@@ -50,14 +54,13 @@ class Graph extends React.Component {
     this.state.data.map((e) => {
       var element = { x: parseFloat(e[0]), y: parseFloat(e[1]) };
       data.push(element);
-      //console.log(element);
     });
-    //console.log(data);
     dataSeries.dataPoints = data;
 
     //set graph data array and render graph
     this.setState({
       dataArray: dataSeries,
+      loading:false
     });
   }
   render() {
@@ -65,7 +68,7 @@ class Graph extends React.Component {
 
     var data = [];
     data.push(this.state.dataArray); // graph data with x axis and y axis value
-
+    const { loading } = this.state;
     // graph option
     const options = {
       zoomEnabled: true,
@@ -78,6 +81,7 @@ class Graph extends React.Component {
       },
       data: data, // inserting data 
     };
+    
     return (
       <div className="col-md-12">
         <Navbar bg="dark" variant="dark">
@@ -87,8 +91,16 @@ class Graph extends React.Component {
           </Navbar.Brand>
         </Navbar>
         <br />
-        <CanvasJSChart options={options} onRef={(ref) => (this.chart = ref)} />
-        <button onClick={this.show_data}>Render Data</button>
+        
+        {loading ? <Loader
+         className="spinner"
+         type="ThreeDots"
+         color="#00BFFF"
+         height={200}
+         width={200}
+ 
+      /> : <CanvasJSChart options={options} onRef={(ref) => (this.chart = ref)} />}
+        
       </div>
     );
   }
